@@ -23,7 +23,7 @@ const Lift = ({ data, handlefloor,mintime, handleChange }: Lift) => {
       <div className="flex justify-between  p-2 w-11/12 h-[980px]  ">
         {data?.map((item: any) => {
           return (
-            <div className=" bg-gray-600 px-7 flex h-full flex-col justify-end items-center">
+            <div key={item.id} className=" bg-gray-600 px-7 flex h-full flex-col justify-end items-center">
               <div
                 key={item.id}
                 style={{ marginBottom: `${140 * item.currentfloor}px` ,transitionDuration:`${mintime*2}s`}}
@@ -58,8 +58,8 @@ const Lift = ({ data, handlefloor,mintime, handleChange }: Lift) => {
         })}
       </div>
       <div className="flex p-8  flex-col justify-between h-[980px] items-center">
-        {Lifts.map((item: any) => (
-          <div className="flex justify-between mb-3 gap-5 items-center">
+        {Lifts.map((item: any,index:number) => (
+          <div key={index} className="flex justify-between mb-3 gap-5 items-center">
             <button
               onClick={() => {
                 handlefloor(item.floor);
